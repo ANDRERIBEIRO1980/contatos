@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+	h1 Relatorio de Participantes Detalhado
+	a(href="/relatorios/agrupado",class="btn btn-success") Relatório Agrupado
+	br
+	br
+	if messages.erro
+		div(class="alert alert-danger")
+			p #{messages.erro}
+		br
+	if messages.info
+		div(class="alert alert-success")
+			p #{messages.info}
+		br
+	if lista.length > 0
+		table(class="table table-striped")
+			thead
+				tr
+					th Nome:
+					th Cidade:
+					th Estado:
+			tbody
+				each valor in lista
+					tr
+						td #{valor.nome}
+						td #{valor.cidade}
+						td #{valor.estado}
+	else
+		p Nenhum registro encontrado!

@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+	br
+	a(href="/amigos/create",class="btn btn-success") Cadastrar Novo Contato
+	h1 Lista de Contatos		
+	br
+	if messages.erro
+		div(class="alert alert-danger")
+			p #{messages.erro}
+		br
+	if messages.info
+		div(class="alert alert-success")
+			p #{messages.info}
+		br
+	if lista.length > 0
+		table(class="table table-striped")
+			thead
+				tr
+					th Nome:
+					th E-mail:
+					th Data Cadastro:
+					th Ações:
+			tbody
+				each valor in lista
+					tr
+						td #{valor.nome}
+						td #{valor.email}
+						td #{moment(valor.data_cad).format('DD/MM/YYYY HH:MM:ss')}
+						td
+							a(href="/contatos/#{valor._id}", class="btn btn-success")
+								span(class="glyphicon glyphicon-plus")
+	else
+		p Nenhum registro encontrado!

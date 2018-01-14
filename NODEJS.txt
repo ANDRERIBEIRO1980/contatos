@@ -1,0 +1,78 @@
+npm install -g nomemodulo 		---instala de forma global
+npm install nomemodulo 			---instala de forma local
+npm list -g				---lista modulos instalados de forma global
+npm list 				---lista modulos instalados de forma local
+npm remove nomemodulo			---remove o modulo local
+npm remove -g nomemodulo		---remove o modulo de forma global
+npm update nomemodulo			---atualiza o modulo local
+npm update -g nomemodulo		---atualiza o modulo de forma global
+npm install -g nodemon			---nodemon para atualizacao automatica na alteracao de codigo e ja atualiza o servidor
+npm install -g nodemon --no-optional 	--instalacao do nodemon com erro de dependencia
+nodemon exe1				--executa exe1.js pelo nodemon para verificar alteracao de codigo automaticamente sem precisar reiniciar o servidor
+"dependencies":{
+"mod1":"*", 				--requer na ultima versao
+"mod2":"1.0.0", 			--requer na versao 1.0.0
+"mod3":"~1.0.0", 			--requer na versao 1 mas no ultimo release
+"mod4":">=1.0.0", 			--requer na versao maior que 1.0.0
+"mod5":"latest",  			--requer na ultima versao
+}
+npm install make -g			--instala o make para o windows reconhecer o comando
+npm install				--instala as dependencias do arquivo package.json
+npm install -g express			--instala o express
+npm install -g express-generator	--instala o express-generator
+express myapp				--criar um projeto com o express
+npm install				--instala as dependencias do novo projeto
+npm start				--executa o projeto sem auto atualizacao de cogido
+nodemon					--executa o projeto com auto atualizacao de cogido
+npm install express-load		--instala o express load para gerenciar diretorios
+npm install --save mongoose		--instala o mogoose para conexao com db mogodb
+npm install --save bcrypt-nodejs	--instala lib para criptografia
+npm install --save moment		--instala lib para formatacao de dados
+npm install --save express-flash	--instala lib para mensagens rapidas na proxima pagina quando redirect (alerts)
+npm install --save express-validator    --instala lib de validacao de formularios
+npm install --save nodemailer		--instala lib para envio de emails
+
+MONGODB
+1)Instalar o mongo
+2)criar o diretorio C:\data\db
+3)adicionar C:\Program Files\MongoDB 2.6 Standard Legacy\bin na variavel de ambiente path
+4)Iniciar o mongo C:\Program Files\MongoDB 2.6 Standard Legacy\bin\mongod.exe
+5)abrir outro prompt e digitar mongo
+
+colocar o mongodb como servico
+criar a pasta C:\data\log
+entrar no cmd como administrador
+colar o comando abaixo no cmd
+mongod --install --serviceName "Mongo DB" --serviceDisplayName "Mongo DB" --logpath C:\data\log\log.log
+iniciar o servico mongodb
+
+IMPORTAR 
+mongoimport --db pesquisa --collection participantes --file participantes.js --drop
+
+db.help								--exibe o help
+use teste 							--cria\usa o banco de dados teste
+db.createCollection('usuarios')					--cria uma collection vazia
+db.usuarios.insert({nome:'Andre', idade:26})			--cria uma collection\tabela e adiciona dados
+db.usuarios.insert({nome:'Nadir', idade:30})			--cria uma collection\tabela
+db.usuarios.insert({nome:'Fabiana', idade:35, filhos: true})	--cria uma collection\tabela
+show dbs							--mostra os banco de dados, banco novo só aparece apos a inclusao de um registro
+show collections						--monstra as collections\tabelas
+db.usuarios.find()						--select na collection usuarios trazendo tudo
+db.usuarios.find().toArray()					--select na collection usuarios trazendo tudo de forma organizada
+db.usuarios.find({nome:"Andre"}).toArray()			--select na cpllection usuarios where nome = "Andre" é casesensitive
+
+UPDATE DE COLLECTIONS
+var documento = db.usuarios.findOne({nome:'Andre'})
+documento.profissao="Developer";
+db.usuarios.save(documento)
+
+DELETE DE COLLECTIONS
+var documento = db.usuarios.findOne({nome:'Fabiana'})
+db.usuarios.remove(documento)
+
+DROP DE COLLECTIONS
+db.usuarios.drop()
+
+DROP DE DATABASE
+db.dropDatabase()						--irá dropar o banco que esta
+
