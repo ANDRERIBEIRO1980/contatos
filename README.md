@@ -1,6 +1,6 @@
 # contatos
 
-CRUD Mestre/Detalhe de cadastro de contatos e usuários desenvolvido com banco de dados nosql MongoDB com a biblioteca mongoose, NodeJS no backend e frontend, possui ainda tela para envio de emails.
+CRUD cadastro de contatos e usuários desenvolvido com banco de dados nosql MongoDB com a biblioteca mongoose, NodeJS no backend e frontend, possui ainda tela para envio de emails.
 
 **Login**
 ![image](https://user-images.githubusercontent.com/23662442/34917678-dcfa68e8-f930-11e7-9606-10de8556530b.png)
